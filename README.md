@@ -1,6 +1,6 @@
 # PythonPhoto
 
-![Python](https://img.shields.io/badge/rust-%23000000.svg?style=for-the-badge&logo=python&logoColor=white)
+![Python](https://img.shields.io/badge/python-%23000000.svg?style=for-the-badge&logo=python&logoColor=white)
 ![License](https://img.shields.io/badge/license-GPL--3.0-blue.svg)
 
 **PythonPhoto** is a Python library for capturing screenshots, processing images, and basic video tasks.
