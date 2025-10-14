@@ -1,16 +1,20 @@
 # PythonPhoto
 
-**PythonPhoto** is a Python library for capturing screenshots and processing images.
-It supports Python 3.8–3.12 and provides an easy way to capture, edit, and save images directly from your desktop.
+**PythonPhoto** is a Python library for capturing screenshots, processing images, and basic video tasks.
+It supports Python 3.8–3.12 and provides an easy way to work with images and video from your desktop.
 
 ---
 
 ## Features
 
-- Capture the **full screen** or a selected region.
-- Save screenshots in **JPEG or PNG** formats.
-- Basic **image processing** (resize, rotate, etc.).
-- Easy integration with Python projects.
+- Open and edit images
+- Crop, resize, blur, sharpen, and rotate images
+- Add text and counters to images
+- Convert image formats (JPG <-> PNG)
+- Black & White and edge enhancement filters
+- Capture full screen or selected region screenshots
+- Video recording
+- Remove image backgrounds
 
 ---
 
@@ -26,55 +30,71 @@ pip install -r requirements.txt
 
 ## Usage Examples
 
-### 1. Capture full screen
+### 1. Image Operations
 
 ```python
-from PythonPhoto import PythonPhoto
+from photo import photographs
 
-# Capture full screen and save
-PythonPhoto.capture_fullscreen("screenshot_full.png")
+# Open image
+foto = photographs.imageOpen("image.jpeg")
+
+# Crop image
+photographs.imageCrop("image.jpeg", 0, 0, 100, 200, "imageCrop.jpg")
+
+# Add text
+photographs.imageFont("image.jpeg", "PythonPhoto", "arial.ttf", 15, "imagefont.jpg")
+
+# Blur
+photographs.imageBlur("image.jpeg", "imageBlur.jpg")
+
+# Convert JPG to PNG
+photographs.imageJpgInPng("image.jpeg", "imageJpgInPng.png")
 ```
 
-![Full screen example](sc/sc1.png)
+![Image examples](sc/sc1.png)
 
 ---
 
-### 2. Capture a selected region
+### 2. Screenshots
 
 ```python
-from PythonPhoto import PythonPhoto
+from photo import screenshotImage
 
-# Capture a specific region (x, y, width, height)
-PythonPhoto.capture_region(100, 100, 400, 300, "screenshot_region.png")
+# Full screen screenshot
+screenshotImage.screenshotalle("screenshot.png")
+
+# Screenshot selected size
+screenshotImage.screenshotSize("PythonPhoto.png", 720, 720, 1280, 820)
 ```
 
-![Region capture example](sc/sc2.png)
+![Screenshot examples](sc/sc2.png)
 
 ---
 
-### 3. Capture video frame
+### 3. Video
 
 ```python
-from PythonPhoto import PythonPhoto
+from photo import video
 
-# Capture a video frame
-PythonPhoto.capture_video_frame("video.mp4", "frame.png", 10) # 10th second
+# Record video
+video.video("PythonPhoto", 720, 720, 30.0, 'w')
 ```
 
-![Video frame example](sc/sc3.png)
+![Video example](sc/sc3.png)
 
 ---
 
-### 4. Remove image or temporary file
+### 4. Remove Background
 
 ```python
-from PythonPhoto import PythonPhoto
+from photo import remove
 
-# Remove an image
-PythonPhoto.remove_image("screenshot_full.png")
+# Remove background
+inp = remove.fotoRemove("input.jpeg")
+inp.save("out.png")
 ```
 
-![Remove image example](sc/sc4.png)
+![Remove background example](sc/sc4.png)
 
 ---
 
